@@ -1,0 +1,26 @@
+{
+  "name": "claranet-logshipping",
+  "version": "0.1.0",
+  "author": "claranet",
+  "summary": "The Claranet AWS logshipping solution",
+  "license": "MIT",
+  "source": "https://git.bashton.net/Bashton/puppet-claranet-logshipping",
+  "project_page": "",
+  "issues_url": "https://git.bashton.net/Bashton/puppet-claranet-logshipping/issues",
+  "dependencies": [
+    {
+      "name": "pcfens/filebeat",
+      "version_requirement": ">= 2.4.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ]
+}

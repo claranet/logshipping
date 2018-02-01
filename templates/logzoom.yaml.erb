@@ -1,0 +1,20 @@
+---
+inputs:
+  - filebeat_all:
+      filebeat:
+        host: 0.0.0.0:5000
+
+outputs:
+  - s3_type1:
+      s3:
+        aws_s3_bucket: "<%= scope['::logshipping::output_s3_bucket'] %>"
+        aws_s3_region: "<%= scope['::logshipping::output_s3_region'] %>"
+        local_path: "/var/tmp/logzoom"
+        s3_path: "<%= scope['::logshipping::output_s3_prefix'] %>"
+        time_slice_format: "%Y/%m/%d/%H%M"
+        aws_s3_output_key: "%{path}/%{timeSlice}/%{hostname}_%{uuid}.gz"
+
+routes:
+  - route1:
+      input: filebeat_all
+      output: s3_type1
