@@ -2,7 +2,7 @@
 inputs:
   - filebeat_all:
       filebeat:
-        host: 0.0.0.0:5000
+          host: 0.0.0.0:<%= scope['::logshipping::logzoom_listen_port'] %>
 
 outputs:
   - s3_type1:
