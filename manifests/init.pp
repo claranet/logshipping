@@ -35,7 +35,7 @@ class logshipping (
     outputs       => {
       'logstash' =>  {
         'hosts'             => [ "localhost:${logzoom_listen_port}" ],
-        'compression_level' =>  0,
+        'compression_level' =>  1,
         'ssl.enabled'       => false,
       }
     }
