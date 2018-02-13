@@ -1,0 +1,36 @@
+journalbeat:
+  clean_field_names: true
+  move_metadata_to_field: journal
+  seek_position: cursor
+  cursor_seek_fallback: tail
+
+  write_cursor_state: true
+  cursor_state_file: /var/lib/filebeat/journalbeat-cursor-state
+  cursor_flush_period: 2s
+
+  clean_field_names: true
+  convert_to_numbers: true
+  default_type: journal
+
+  ssl.enabled: false
+
+processors:
+  - drop_event.when.or:
+      - equals.journal.syslog_identifier: logzoom
+      - equals.journal.syslog_identifier: journalbeat
+
+<% if scope['::logshipping::journalbeat_fields'] != {} %>
+fields_under_root: true
+fields:
+<% scope['::logshipping::journalbeat_fields'].each_pair do | field, content | -%>
+  <%= field %>: <%= content %>
+<% end -%>
+<% end -%>
+
+name: journalbeat
+
+output.logstash:
+  hosts: ["localhost:<%= scope['::logshipping::logzoom_listen_port'] %>"]
+
+logging.to_files: true
+logging.level: info

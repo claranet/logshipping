@@ -9,4 +9,11 @@ class logshipping::config {
     mode    => '0600',
     content =>  template('logshipping/logzoom.yaml.erb'),
   }
+
+  file { $::logshipping::journalbeat_config_file:
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0600',
+    content =>  template('logshipping/journalbeat.yaml.erb'),
+  }
 }

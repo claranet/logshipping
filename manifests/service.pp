@@ -11,4 +11,11 @@ class logshipping::service {
     hasstatus  => true,
     hasrestart => true,
   }
+
+  service { $::logshipping::journalbeat_service_name:
+    ensure     => running,
+    enable     => true,
+    hasstatus  => true,
+    hasrestart => true,
+  }
 }
