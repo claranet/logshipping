@@ -23,6 +23,7 @@ class logshipping (
   String $output_s3_region = 'eu-west-1',
   String $output_s3_bucket = undef,
   String $output_s3_prefix = undef,
+  String $output_s3_acl = 'private',
 ){
 
   # validate parameters here
