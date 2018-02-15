@@ -13,6 +13,7 @@ outputs:
         s3_path: "<%= scope['::logshipping::output_s3_prefix'] %>"
         time_slice_format: "%Y/%m/%d/%H%M"
         aws_s3_output_key: "%{path}/%{timeSlice}/%{hostname}_%{uuid}.gz"
+        aws_s3_output_acl: "<%= scope['::logshipping::output_s3_acl'] %>"
         output_format: json
 
 routes:

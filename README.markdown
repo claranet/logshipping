@@ -47,6 +47,7 @@ classes:
 
 logshipping::output_s3_bucket: customername-logshipping
 logshipping::output_s3_prefix: "%{::envname}-${::envtype}"
+logshipping::output_s3_acl: bucket-owner-full-control
 logshipping::journalbeat_fields:
   account_name: "%{::account_name}" # Assumes we have a custom account_name fact
   envtype: "%{::envtype}" # Assumes we have a custom envtype fact
