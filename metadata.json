@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "name": "pcfens/filebeat",
-      "version_requirement": ">= 2.4.0"
+      "version_requirement": ">= 3.4.0"
     }
   ],
   "operatingsystem_support": [
